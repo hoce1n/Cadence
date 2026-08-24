@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Cadence",
+      "hasCanvas": false,
+      "bodyTextLen": 551,
+      "bodyTextHash": "ade3baaa8e52f47a94e710438819487ccd22ed097f774617ce35ea384c447d74",
+      "bodyTextPrefix": "Monday 24 August Cadence Add 2/4 Today 2 habits still open. Best",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Cadence",
+      "hasCanvas": false,
+      "bodyTextLen": 551,
+      "bodyTextHash": "ade3baaa8e52f47a94e710438819487ccd22ed097f774617ce35ea384c447d74",
+      "bodyTextPrefix": "Monday 24 August Cadence Add 2/4 Today 2 habits still open. Best",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

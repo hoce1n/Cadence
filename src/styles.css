@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+
+  --color-background: #f3eee4;
+  --color-foreground: #1c1915;
+  --color-card: #faf6ee;
+  --color-card-foreground: #1c1915;
+  --color-popover: #faf6ee;
+  --color-popover-foreground: #1c1915;
+  --color-primary: #2f4a3c;
+  --color-primary-foreground: #f3eee4;
+  --color-secondary: #ebe4d6;
+  --color-secondary-foreground: #1c1915;
+  --color-muted: #ebe4d6;
+  --color-muted-foreground: #6f6a62;
+  --color-accent: #e4dccb;
+  --color-accent-foreground: #1c1915;
+  --color-destructive: #8f3d32;
+  --color-destructive-foreground: #f3eee4;
+  --color-border: #ddd4c4;
+  --color-input: #ddd4c4;
+  --color-ring: #2f4a3c;
+  --color-subtle: #9a948a;
+
+  --color-habit-sage: #3d6b52;
+  --color-habit-teal: #2f6b66;
+  --color-habit-slate: #4a5d73;
+  --color-habit-clay: #8a5a3c;
+  --color-habit-rose: #8a5555;
+  --color-habit-olive: #5c6b3a;
+  --color-habit-ink: #3d3832;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  --shadow-border:
+    0 0 0 1px color-mix(in oklab, var(--color-foreground) 6%, transparent),
+    0 1px 2px -1px color-mix(in oklab, var(--color-foreground) 6%, transparent),
+    0 2px 8px 0 color-mix(in oklab, var(--color-foreground) 4%, transparent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-background);
+    background-image: linear-gradient(
+      180deg,
+      #f7f3eb 0%,
+      var(--color-background) 32%
+    );
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+[data-habit="sage"] {
+  --habit: var(--color-habit-sage);
+}
+[data-habit="teal"] {
+  --habit: var(--color-habit-teal);
+}
+[data-habit="slate"] {
+  --habit: var(--color-habit-slate);
+}
+[data-habit="clay"] {
+  --habit: var(--color-habit-clay);
+}
+[data-habit="rose"] {
+  --habit: var(--color-habit-rose);
+}
+[data-habit="olive"] {
+  --habit: var(--color-habit-olive);
+}
+[data-habit="ink"] {
+  --habit: var(--color-habit-ink);
+}
+
+.habit-swatch {
+  background-color: var(--habit);
+}
+
+.habit-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background-color: color-mix(in oklab, var(--habit) 14%, var(--color-card));
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--habit) 32%, transparent);
+  color: transparent;
+  transition:
+    background-color 150ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 150ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 150ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 80ms ease-out;
+}
+
+.habit-cell[data-on="true"] {
+  background-color: var(--habit);
+  box-shadow: none;
+  color: var(--color-card);
+}
+
+.habit-cell[data-today="true"]:not([data-on="true"]) {
+  box-shadow: inset 0 0 0 2px var(--habit);
+}
+
+.habit-cell:not(:disabled):hover {
+  background-color: color-mix(in oklab, var(--habit) 24%, var(--color-card));
+}
+
+.habit-cell[data-on="true"]:not(:disabled):hover {
+  background-color: color-mix(in oklab, var(--habit) 88%, black);
+}
+
+.habit-cell:not(:disabled):active {
+  transform: scale(0.96);
+}
+
+.habit-cell:disabled {
+  opacity: 0.38;
+}
+
+.habit-heat {
+  border-radius: 3px;
+  background-color: color-mix(in oklab, var(--habit) 12%, var(--color-secondary));
+}
+
+.habit-heat[data-on="true"] {
+  background-color: var(--habit);
+}
+
+.day-heat {
+  background-color: color-mix(in oklab, var(--color-primary) var(--heat, 0%), var(--color-secondary));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .habit-cell,
+  .habit-cell:not(:disabled):active {
+    transition: none;
+    transform: none;
+  }
+}
