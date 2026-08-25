@@ -171,6 +171,11 @@ export default defineConfig(({ command, isPreview }) => ({
       ? [
           nitro({
             preset: "vercel",
+            // `@radix-ui` SSR helpers import `tslib`. A prebuilt Vercel
+            // deployment only uploads the generated function, so leaving this
+            // helper external causes the root document request to fail at
+            // module-load time with ERR_MODULE_NOT_FOUND.
+            noExternals: ["tslib"],
             // Auto-registers server/middleware/* (the PWA install page +
             // manifest + head-tag middleware). Nitro v3 defaults serverDir to
             // false, so removing this silently unwires /?install=1 on deploys.

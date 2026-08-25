@@ -1,7 +1,7 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DfyvzLY7.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DCg7a4ZZ.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
-		filePath: "/workspace/src/routes/__root.tsx",
+		filePath: "/home/ubuntu/Cadence/src/routes/__root.tsx",
 		children: ["/"],
 		preloads: ["/assets/index-frK1F6UZ.js"],
 		scripts: [{ attrs: {
@@ -11,7 +11,7 @@ var tsrStartManifest = () => ({ routes: {
 		} }]
 	},
 	"/": {
-		filePath: "/workspace/src/routes/index.tsx",
+		filePath: "/home/ubuntu/Cadence/src/routes/index.tsx",
 		children: void 0,
 		preloads: ["/assets/routes-ButIzFln.js"]
 	}
