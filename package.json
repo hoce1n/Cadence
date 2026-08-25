@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
     "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts",
-    "test:cadence": "node --experimental-strip-types --test src/features/cadence/db/cadence-db.test.ts src/features/cadence/db/migrations/migrate-legacy-local-storage.test.ts",
+    "test:cadence": "node --experimental-strip-types --test src/features/cadence/domain/cadence-engine.test.ts src/features/cadence/db/cadence-db.test.ts src/features/cadence/db/migrations/migrate-legacy-local-storage.test.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
